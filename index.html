@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Ducale - Smash Burger & Fast Food | Parma</title>
+    <meta name="description" content="Food Ducale — Smash burger e panini artigianali a Parma. Ingredienti freschi, lievito madre e farina di qualità. Vieni a trovarci in Viale Piacenza 19.">
+    <meta property="og:title" content="Food Ducale - Smash Burger & Fast Food | Parma">
+    <meta property="og:description" content="Smash burger e panini artigianali a Parma. Ingredienti freschi, lievito madre e farina di qualità.">
+    <meta property="og:image" content="https://www.foodducale.it/foto.jpeg">
+    <meta property="og:url" content="https://www.foodducale.it/">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -717,12 +726,47 @@
             }
         }
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "Food Ducale",
+        "image": "https://www.foodducale.it/foto.jpeg",
+        "url": "https://www.foodducale.it",
+        "telephone": "+393534361648",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Viale Piacenza, 19",
+            "addressLocality": "Parma",
+            "postalCode": "43126",
+            "addressRegion": "PR",
+            "addressCountry": "IT"
+        },
+        "servesCuisine": ["Smash Burger", "Fast Food", "Panini"],
+        "priceRange": "€",
+        "openingHoursSpecification": [
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "19:00", "closes": "22:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "22:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:00", "closes": "22:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "22:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "19:00", "closes": "23:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "15:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "19:00", "closes": "22:30" }
+        ],
+        "sameAs": ["https://www.instagram.com/food.ducale/"]
+    }
+    </script>
 </head>
 <body>
 
     <!-- NAV -->
     <nav>
-        <a href="#" class="nav-logo">Food Ducale</a>
+        <a href="#" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Food Ducale</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">Chi Siamo</a></li>
             <li><a href="#menu">Menu</a></li>

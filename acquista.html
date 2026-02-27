@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acquista Panini Artigianali - Food Ducale</title>
+    <meta name="description" content="Acquista i panini artigianali di Food Ducale. Confezione da 3 panini fatti a mano con lievito madre, spedizione in tutta Italia.">
+    <meta property="og:title" content="Acquista Panini Artigianali - Food Ducale">
+    <meta property="og:description" content="Panini artigianali fatti a mano con lievito madre. Confezione da 3 panini, spedizione in tutta Italia.">
+    <meta property="og:image" content="https://www.foodducale.it/foto.jpeg">
+    <meta property="og:url" content="https://www.foodducale.it/acquista.html">
+    <meta property="og:type" content="product">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -361,7 +370,7 @@
             <div class="product-info">
                 <span class="product-badge">Spedizione in tutta Italia</span>
                 <h1 class="product-title">Panini Artigianali per Hamburger</h1>
-                <p class="product-desc">I nostri panini fatti a mano, perfetti per smash burger e hamburger gourmet. Confezione da 6 pezzi, preparati con lievito madre e farina di qualit&agrave;.</p>
+                <p class="product-desc">I nostri panini fatti a mano, perfetti per smash burger e hamburger gourmet. Confezione da 3 pezzi, preparati con lievito madre e farina di qualit&agrave;.</p>
                 <div class="product-price-row">
                     <div>
                         <div class="product-price">&euro;6,90</div>
@@ -415,17 +424,23 @@
             window.location.href = STRIPE_PAYMENT_LINK;
         });
 
-        // Success detection
-        function checkSuccess() {
+        // Success/cancel detection
+        function checkPaymentStatus() {
             var params = new URLSearchParams(window.location.search);
             if (params.get('success') === 'true') {
                 document.getElementById('mainContent').classList.add('hidden');
                 document.getElementById('confirmationSection').classList.add('active');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (params.get('canceled') === 'true') {
+                var banner = document.createElement('div');
+                banner.style.cssText = 'background:#ff4444;color:#fff;text-align:center;padding:14px 20px;font-size:0.95rem;position:fixed;top:0;left:0;right:0;z-index:9999;';
+                banner.textContent = 'Pagamento annullato. Puoi riprovare quando vuoi.';
+                document.body.prepend(banner);
+                setTimeout(function() { banner.remove(); }, 5000);
             }
         }
 
-        checkSuccess();
+        checkPaymentStatus();
     </script>
 
 </body>
