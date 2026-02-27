@@ -77,81 +77,83 @@
 
         /* HERO PRODUCT */
         .product-hero {
-            max-width: 1100px;
+            max-width: 1500px;
             margin: 0 auto;
-            padding: 3rem 2rem 2rem;
+            padding: 4rem 4rem 3rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            min-height: calc(100vh - 80px);
         }
 
         .product-image {
-            border-radius: 16px;
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid rgba(212, 164, 56, 0.15);
+            border: 1px solid rgba(212, 164, 56, 0.2);
             background: var(--dark);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
         }
 
         .product-image img {
             width: 100%;
-            max-height: 450px;
+            max-height: 650px;
             object-fit: cover;
             display: block;
         }
 
         .product-info {
-            padding-top: 1rem;
+            padding-top: 0;
         }
 
         .product-badge {
             display: inline-block;
-            padding: 0.4rem 1rem;
+            padding: 0.6rem 1.5rem;
             border: 1px solid var(--gold);
             border-radius: 50px;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--gold);
-            margin-bottom: 1.25rem;
+            margin-bottom: 2rem;
         }
 
         .product-title {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2.8rem;
-            letter-spacing: 2px;
+            font-size: 4.5rem;
+            letter-spacing: 4px;
             line-height: 1;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .product-desc {
-            color: rgba(255, 255, 255, 0.55);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
         }
 
         .product-price-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem;
+            padding: 1.75rem 2rem;
             background: rgba(212, 164, 56, 0.08);
             border: 1px solid rgba(212, 164, 56, 0.15);
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
         }
 
         .product-price {
             font-family: 'Bebas Neue', sans-serif;
-            font-size: 2rem;
+            font-size: 3rem;
             color: var(--gold);
         }
 
         .product-unit {
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.4);
-            margin-top: 0.15rem;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 0.25rem;
         }
 
 
@@ -193,31 +195,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.6rem;
+            gap: 0.75rem;
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem;
             background: var(--gold);
             color: var(--dark);
             border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
+            border-radius: 10px;
+            font-size: 1.05rem;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             cursor: pointer;
             font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
+            transition: all 0.3s;
             text-decoration: none;
+            box-shadow: 0 4px 20px rgba(212, 164, 56, 0.3);
         }
 
         .btn-pay:hover {
             background: var(--gold-light);
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 164, 56, 0.4);
         }
 
         .btn-pay svg {
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
         }
 
         .payment-note {
@@ -322,31 +326,102 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            nav {
+                padding: 0.7rem 1.25rem;
+            }
+
+            .main-content {
+                min-height: calc(100dvh - 50px);
+                display: flex;
+                flex-direction: column;
+            }
+
             .product-hero {
-                grid-template-columns: 1fr;
-                padding: 2rem 1.5rem;
-                gap: 2rem;
+                display: flex;
+                flex-direction: column;
+                padding: 0.75rem 1.25rem;
+                gap: 0.75rem;
+                flex: 1;
             }
 
             .product-image {
-                max-height: 350px;
+                overflow: hidden;
+                border-radius: 12px;
+                margin-bottom: 1rem;
             }
 
             .product-image img {
-                max-height: 350px;
+                height: 500px;
+                width: 100%;
+                object-fit: cover;
+            }
+
+            .product-info {
+                flex-shrink: 0;
             }
 
             .product-info {
                 padding-top: 0;
             }
 
+            .product-badge {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.65rem;
+                margin-bottom: 0.5rem;
+            }
+
             .product-title {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+                margin-bottom: 0.4rem;
+                letter-spacing: 2px;
+            }
+
+            .product-desc {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                margin-bottom: 0.75rem;
+            }
+
+            .product-price-row {
+                padding: 0.75rem 1rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .product-price {
+                font-size: 1.8rem;
+            }
+
+            .product-unit {
+                font-size: 0.75rem;
+            }
+
+            .btn-pay {
+                padding: 0.9rem;
+                font-size: 0.9rem;
+            }
+
+            .payment-note {
+                font-size: 0.7rem;
+                margin-top: 0.5rem;
+            }
+
+            footer {
+                flex-shrink: 0;
+                padding: 0.75rem 1.25rem;
+                font-size: 0.65rem;
+            }
+
+            .footer-links {
+                gap: 0.75rem;
+            }
+
+            .footer-copy {
+                margin-top: 0.25rem;
             }
 
             .payment-section {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
         }
     </style>
