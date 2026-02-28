@@ -579,6 +579,124 @@
             letter-spacing: 1px;
         }
 
+        /* SHOP / PANE */
+        .shop {
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shop::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(212, 164, 56, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .shop-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shop-image {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(212, 164, 56, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .shop-image img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            display: block;
+        }
+
+        .shop-text {
+            text-align: center;
+        }
+
+        .shop-text .label {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .shop-text h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: 3px;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .shop-text p {
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .shop-price {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin: 1rem 0 2rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(212, 164, 56, 0.08);
+            border: 1px solid rgba(212, 164, 56, 0.15);
+            border-radius: 10px;
+        }
+
+        .shop-price .amount {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+        }
+
+        .shop-price .unit {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-shop {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold), #E8B840, var(--gold-light));
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 20px rgba(212, 164, 56, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-shop:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(212, 164, 56, 0.45);
+        }
+
+        .shop-shipping {
+            display: block;
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 1px;
+        }
+
         /* FOOTER */
         footer {
             background: var(--darker);
@@ -621,6 +739,15 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
+            /* NAV */
+            nav {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -629,8 +756,8 @@
                 width: 100%;
                 background: rgba(17, 17, 17, 0.98);
                 flex-direction: column;
-                padding: 2rem;
-                gap: 1.5rem;
+                padding: 1.5rem 1.25rem;
+                gap: 0;
                 border-bottom: 1px solid rgba(212, 164, 56, 0.2);
             }
 
@@ -638,25 +765,286 @@
                 display: flex;
             }
 
-            .hamburger {
-                display: flex;
+            .nav-links li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
-            .about-grid,
-            .location-grid {
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+                padding: 0.5rem;
+            }
+
+            /* HERO */
+            .hero {
+                min-height: 100svh;
+            }
+
+            .hero-content {
+                padding: 1.25rem;
+            }
+
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 1.2rem;
+                letter-spacing: 2px;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(3.5rem, 18vw, 6rem);
+                letter-spacing: 3px;
+            }
+
+            .hero-tagline {
+                font-size: 0.95rem;
+                margin-top: 1rem;
+                letter-spacing: 1px;
+            }
+
+            .hero-cta {
+                margin-top: 2rem;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 0.9rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .scroll-indicator {
+                bottom: 1.25rem;
+            }
+
+            /* SECTIONS */
+            section {
+                padding: 3.5rem 1.25rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .section-header p {
+                font-size: 0.9rem;
+            }
+
+            /* ABOUT */
+            .about-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .about-image {
-                max-height: 300px;
+                max-height: 280px;
+                aspect-ratio: 16/10;
+                border-radius: 10px;
+            }
+
+            .about-text h3 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-text p {
+                font-size: 0.9rem;
+                line-height: 1.7;
             }
 
             .stats {
-                justify-content: center;
+                justify-content: space-around;
+                gap: 1rem;
+                margin-top: 1.5rem;
             }
 
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            /* MENU */
+            .menu-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .menu-card {
+                padding: 1.75rem 1.5rem;
+                border-radius: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0;
+            }
+
+            .menu-card .icon {
+                font-size: 2.5rem;
+                margin-bottom: 0;
+                margin-right: 1rem;
+                flex-shrink: 0;
+            }
+
+            .menu-card h3 {
+                flex: 1;
+                font-size: 1.3rem;
+                margin-bottom: 0;
+            }
+
+            .menu-card p {
+                width: 100%;
+                margin-top: 0.75rem;
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .menu-card .price {
+                width: 100%;
+                font-size: 1.15rem;
+            }
+
+            .menu-card:hover {
+                transform: none;
+            }
+
+            /* HOURS */
             .hours-container {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1.25rem;
+                border-radius: 12px;
+            }
+
+            .hours-row {
+                padding: 0.85rem 0;
+            }
+
+            .hours-row .day {
+                font-size: 0.9rem;
+            }
+
+            .hours-row .time {
+                font-size: 0.8rem;
+                text-align: right;
+            }
+
+            /* LOCATION */
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .map-container {
+                aspect-ratio: 16/10;
+                border-radius: 10px;
+            }
+
+            .location-info h3 {
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .info-item {
+                margin-bottom: 1.25rem;
+            }
+
+            .info-item .info-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 1.1rem;
+            }
+
+            .location-info .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+
+            /* REVIEWS */
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .review-card {
+                padding: 1.5rem;
+                border-radius: 10px;
+            }
+
+            .review-card p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+
+            /* SHOP */
+            .shop-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .shop-image {
+                border-radius: 10px;
+            }
+
+            .shop-image img {
+                aspect-ratio: 16/10;
+            }
+
+            .shop-text h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .shop-text p {
+                font-size: 0.9rem;
+            }
+
+            .shop-price {
+                margin: 0.75rem 0 1.5rem;
+            }
+
+            .shop-price .amount {
+                font-size: 2rem;
+            }
+
+            .btn-shop {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 2rem;
+            }
+
+            /* FOOTER */
+            footer {
+                padding: 2.5rem 1.25rem;
+            }
+
+            .footer-logo {
+                font-size: 1.75rem;
+            }
+
+            .footer-links {
+                gap: 1rem 1.5rem;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
             }
         }
 
@@ -719,6 +1107,18 @@
         }
 
         @media (max-width: 768px) {
+            .hero-buy {
+                margin-top: 1.5rem;
+                gap: 0.5rem;
+            }
+
+            .btn-buy {
+                font-size: 0.9rem;
+                padding: 1rem 2.5rem;
+                width: 100%;
+                max-width: 280px;
+            }
+
             .hero-buy-sub {
                 font-size: 0.7rem;
                 padding: 0 1rem;
@@ -745,18 +1145,17 @@
         "servesCuisine": ["Smash Burger", "Fast Food", "Panini"],
         "priceRange": "€",
         "openingHoursSpecification": [
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "19:00", "closes": "22:30" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "22:30" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:00", "closes": "22:30" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "22:30" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "19:00", "closes": "23:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "12:00", "closes": "15:00" },
-            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "19:00", "closes": "22:30" }
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "12:00", "closes": "14:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "19:00", "closes": "22:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "12:00", "closes": "14:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "22:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "12:00", "closes": "14:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "19:00", "closes": "22:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "12:00", "closes": "14:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "19:00", "closes": "22:00" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "14:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "19:00", "closes": "22:30" },
+            { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "19:00", "closes": "22:00" }
         ],
         "sameAs": ["https://www.instagram.com/food.ducale/"]
     }
@@ -773,6 +1172,7 @@
             <li><a href="#hours">Orari</a></li>
             <li><a href="#location">Dove Siamo</a></li>
             <li><a href="#reviews">Recensioni</a></li>
+            <li><a href="#shop">Shop</a></li>
         </ul>
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span>
@@ -888,7 +1288,7 @@
         <div class="section-header fade-in">
             <p class="label">Orari di Apertura</p>
             <h2>Quando Trovarci</h2>
-            <p>Pranzo e cena, dal martedi alla domenica.</p>
+            <p>Pranzo e cena, dal martedi alla domenica. Domenica solo cena.</p>
         </div>
         <div class="hours-container fade-in">
             <div class="hours-row closed">
@@ -897,27 +1297,27 @@
             </div>
             <div class="hours-row">
                 <span class="day">Martedi</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 22:30</span>
+                <span class="time">12:00 - 14:30 &bull; 19:00 - 22:00</span>
             </div>
             <div class="hours-row">
                 <span class="day">Mercoledi</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 22:30</span>
+                <span class="time">12:00 - 14:30 &bull; 19:00 - 22:00</span>
             </div>
             <div class="hours-row">
                 <span class="day">Giovedi</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 22:30</span>
+                <span class="time">12:00 - 14:30 &bull; 19:00 - 22:00</span>
             </div>
             <div class="hours-row">
                 <span class="day">Venerdi</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 22:30</span>
+                <span class="time">12:00 - 14:30 &bull; 19:00 - 22:00</span>
             </div>
             <div class="hours-row highlight">
                 <span class="day">Sabato</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 23:00</span>
+                <span class="time">12:00 - 14:30 &bull; 19:00 - 22:30</span>
             </div>
             <div class="hours-row">
                 <span class="day">Domenica</span>
-                <span class="time">12:00 - 15:00 &bull; 19:00 - 22:30</span>
+                <span class="time">19:00 - 22:00</span>
             </div>
         </div>
     </section>
@@ -998,6 +1398,26 @@
         </div>
     </section>
 
+    <!-- SHOP / PANE -->
+    <section class="shop" id="shop">
+        <div class="shop-container">
+            <div class="shop-image fade-in">
+                <img src="foto.jpeg" alt="Panini Artigianali per Hamburger - Food Ducale">
+            </div>
+            <div class="shop-text fade-in">
+                <p class="label">Shop Online</p>
+                <h2>Il Nostro Pane<br>a Casa Tua</h2>
+                <p>Panini artigianali fatti a mano con lievito madre e farina di qualit&agrave;. Perfetti per smash burger e hamburger gourmet, direttamente dal nostro laboratorio alla tua tavola.</p>
+                <div class="shop-price">
+                    <span class="amount">&euro;6,90</span>
+                    <span class="unit">Confezione da 3 panini</span>
+                </div>
+                <a href="acquista.html" class="btn-shop">Acquista Ora</a>
+                <span class="shop-shipping">Spedizione in tutta Italia</span>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-logo">Food Ducale</div>
@@ -1006,6 +1426,7 @@
             <a href="#menu">Menu</a>
             <a href="#hours">Orari</a>
             <a href="#location">Dove Siamo</a>
+            <a href="#shop">Shop</a>
             <a href="https://www.instagram.com/food.ducale/" target="_blank">Instagram</a>
             <a href="tel:+393534361648">Chiamaci</a>
         </div>
